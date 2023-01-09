@@ -1,0 +1,244 @@
+/*
+Theme Name: My Profile
+*/
+
+@charset "utf-8";
+
+@use 'normalize';
+
+// ページ全体に関わるCSS
+
+html *
+:before,
+:after {
+  box-sizing: border-box;  // ボーダーもボックス内に含める
+}
+
+body {
+font-family: 'Zen Maru Gothic', sans-serif;
+color: #333;
+background: #f5f5f5;
+}
+
+
+.header-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 3%;
+
+  @media(min-width: 768px){
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 20px;
+  }
+}
+
+
+.site-title {
+  background: #000000;
+  color: #f5f5f5;
+  padding: 14px 50px;
+  margin: 10px;
+  font-size: 1.5rem;
+  border: 1px solid #000;
+  @media (min-width: 768px) {
+    font-size: 2.1rem;
+}
+}
+
+.hidden {
+  display: none;
+}
+
+.open {
+  position: fixed;
+  top: 25px;
+  right: 50px;
+  padding: 5px 5px;
+  font-size: 1.8rem;
+  @media (min-width: 768px) {
+    display: none;
+    font-size: 2rem;
+}
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 73px;
+  font-size: 2rem;
+  padding: 5px 5px;
+  display: flex;
+  @media (min-width: 768px) {
+    display: none;
+}
+}
+
+.drawer-wrap {
+  position: fixed;
+  top: -500px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: all .2s;
+  
+  @media (min-width: 768px) {
+  position: absolute;
+  top:0;
+  background: none;
+}
+}
+
+.header-navmenu {
+  li {
+      padding-left: 0;
+      margin: 0;
+      text-align: right;
+      list-style: none;
+      color: #fff;
+      
+      a {
+          display: inline-block;
+          top: 100px;
+          right: 15px;
+          padding: 2%;
+          margin: 60px 50px 0px 1px;
+          font-size: 1.4rem;
+          text-decoration: none;
+          color: black;
+          &:hover {
+            text-decoration: underline;
+          }
+      }
+    }
+  
+  @media(min-width: 768px) {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0px 10px;
+      margin: auto;
+      font-size: 1.5rem;
+  }
+  }
+
+#menu:checked ~ .drawer-wrap {
+  top: 0;
+}
+
+// メイン
+.main-container {
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 700px;
+  }
+}
+
+// 各コンテンツ
+.about-container, .portfolio-container {
+  padding: 80px 5% 0;
+  @media  (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 60px 20px 0;    
+  }
+}
+
+h2 {
+  margin: 0;
+  padding-bottom: 8%;
+  font-size: 2rem;
+  text-align: center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// About
+.profile-box {
+display: flex;
+flex-direction: column ;
+text-align: center;
+@media (min-width: 768px){
+  flex-direction: row ;
+  justify-content: center;
+}
+
+.profile-img {
+  flex:0 0 400px;
+  text-align: center;
+
+img {
+  width: 50%;
+  padding: 0px;
+  border: 1px solid black;
+  border-radius: 50%;
+  justify-content: center;
+  
+  @media (min-width: 768px){
+    width: 80%;
+  }
+}
+}
+.profile-text {
+  flex: 1 1 auto;
+  line-height: 2;
+  h3{
+    margin: 0;
+    padding-bottom: 1.8rem;
+    font-size: 1.8rem;
+    
+  }
+  li {
+    text-align: left;
+    font-size: 0.875rem;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    @media (min-width: 768px){
+      font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+// Portfolio
+.product-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+  column-gap: 20px;
+  row-gap: 30px;
+.portfolio-img {
+  img {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+.portfolio-text {
+  font-size: 0.875rem;
+ }
+}
+
+
+
+/**
+* ***************************************
+* フッター
+* ***************************************
+*/
+
+.footer-continer {
+  padding: 50px 4% 20px;
+  @media (min-width: 768px) {
+      margin: 0 auto;
+      max-width: 1000px;
+      padding: 60px 20px 20px;
+  }
+  .copyright {
+      margin: 0;
+      text-align: center;
+  }
+}
